@@ -13,11 +13,13 @@ endif()
 find_package(action_msgs REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "action/Fibonacci.action"
   "srv/AddTwoInts.srv"
-  DEPENDENCIES action_msgs
+  DEPENDENCIES action_msgs geometry_msgs
 )
 
 install(FILES mapping_rules.yaml DESTINATION share/${PROJECT_NAME})
